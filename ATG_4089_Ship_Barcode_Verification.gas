@@ -1,0 +1,1348 @@
+Program.Sub.ScreenSU.Start
+gui.F_Ship..create
+gui.F_Ship..caption("Shipping Barcode Verification")
+gui.F_Ship..size(13710,7005)
+gui.F_Ship..position(0,0)
+gui.F_Ship..event(resize,f_ship_resize)
+gui.F_Ship..event(unload,f_ship_unload)
+gui.F_Ship..alwaysontop(False)
+gui.F_Ship..fontname("Arial")
+gui.F_Ship..fontsize(8)
+gui.F_Ship..forecolor(0)
+gui.F_Ship..fontstyle(,,,,)
+gui.F_Ship..BackColor(-2147483633)
+gui.F_Ship..controlbox(True)
+gui.F_Ship..maxbutton(True)
+gui.F_Ship..minbutton(True)
+gui.F_Ship..mousepointer(0)
+gui.F_Ship..moveable(True)
+gui.F_Ship..sizeable(True)
+gui.F_Ship..ShowInTaskBar(True)
+gui.F_Ship..titlebar(True)
+gui.F_Ship.txtOrder.create(textbox,"",True,1200,300,0,200,415,True,0,Arial,8,-2147483643,1)
+gui.F_Ship.txtOrder.event(keypressenter,txtorder_keypressenter)
+gui.F_Ship.txtOrder.maxLength(7)
+gui.F_Ship.txtOrder.defaultvalue("")
+gui.F_Ship.txtOrder.controlgroup(0)
+gui.F_Ship.gsflexgrid1.create(gsflexgrid)
+gui.F_Ship.gsflexgrid1.FixedRows(0)
+gui.F_Ship.gsflexgrid1.FixedCols(0)
+gui.F_Ship.gsflexgrid1.visible(True)
+gui.F_Ship.gsflexgrid1.size(13680,4455)
+gui.F_Ship.gsflexgrid1.zorder(0)
+gui.F_Ship.gsflexgrid1.position(200,1455)
+gui.F_Ship.gsflexgrid1.enabled(True)
+gui.F_Ship.txtCustomer.create(textbox,"",True,1700,300,0,1855,415,False,0,Arial,8,-2147483643,1)
+gui.F_Ship.txtCustomer.defaultvalue("")
+gui.F_Ship.txtCustomer.controlgroup(0)
+gui.F_Ship.txtName.create(textbox,"",True,3300,300,0,3610,415,False,0,Arial,8,-2147483643,1)
+gui.F_Ship.txtName.defaultvalue("")
+gui.F_Ship.txtName.controlgroup(0)
+gui.F_Ship.txtPO.create(textbox,"",True,1700,300,0,6985,415,False,0,Arial,8,-2147483643,1)
+gui.F_Ship.txtPO.defaultvalue("")
+gui.F_Ship.txtPO.controlgroup(0)
+gui.F_Ship.lbl1.create(label,"Order No",True,900,255,1,200,200,True,0,Arial,8,-2147483633,0)
+gui.F_Ship.lbl1.defaultvalue("")
+gui.F_Ship.lbl1.controlgroup(0)
+gui.F_Ship.lbl2.create(label,"Customer No",True,1095,255,1,1855,200,True,0,Arial,8,-2147483633,0)
+gui.F_Ship.lbl2.defaultvalue("")
+gui.F_Ship.lbl2.controlgroup(0)
+gui.F_Ship.lbl3.create(label,"Customer Name",True,1230,255,1,3610,200,True,0,Arial,8,-2147483633,0)
+gui.F_Ship.lbl3.defaultvalue("")
+gui.F_Ship.lbl3.controlgroup(0)
+gui.F_Ship.lbl4.create(label,"Customer PO",True,1050,255,1,6985,200,True,0,Arial,8,-2147483633,0)
+gui.F_Ship.lbl4.defaultvalue("")
+gui.F_Ship.lbl4.controlgroup(0)
+gui.F_Ship.txtCarrier.create(textbox,"",True,1700,300,0,8765,415,False,0,Arial,8,-2147483643,1)
+gui.F_Ship.txtCarrier.defaultvalue("")
+gui.F_Ship.txtCarrier.controlgroup(0)
+gui.F_Ship.cmdCarrierLU.create(button)
+gui.F_Ship.cmdCarrierLU.caption("^")
+gui.F_Ship.cmdCarrierLU.visible(True)
+gui.F_Ship.cmdCarrierLU.size(375,375)
+gui.F_Ship.cmdCarrierLU.zorder(0)
+gui.F_Ship.cmdCarrierLU.position(10475,405)
+gui.F_Ship.cmdCarrierLU.enabled(False)
+gui.F_Ship.cmdCarrierLU.fontname("Arial")
+gui.F_Ship.cmdCarrierLU.fontsize(8)
+gui.F_Ship.cmdCarrierLU.event(click,cmdcarrierlu_click)
+gui.F_Ship.cmdCarrierLU.disableonclick(10)
+gui.F_Ship.cmdCarrierLU.defaultvalue("")
+gui.F_Ship.cmdCarrierLU.controlgroup(0)
+gui.F_Ship.txtShipVia.create(textbox,"",True,1700,300,0,10895,415,False,0,Arial,8,-2147483643,1)
+gui.F_Ship.txtShipVia.defaultvalue("")
+gui.F_Ship.txtShipVia.controlgroup(0)
+gui.F_Ship.lbl5.create(label,"Carrier",True,585,255,1,8765,200,True,0,Arial,8,-2147483633,0)
+gui.F_Ship.lbl5.defaultvalue("")
+gui.F_Ship.lbl5.controlgroup(0)
+gui.F_Ship.lbl6.create(label,"Ship Via",True,1935,255,1,10895,200,True,0,Arial,8,-2147483633,0)
+gui.F_Ship.lbl6.defaultvalue("")
+gui.F_Ship.lbl6.controlgroup(0)
+gui.F_Ship.cmdProcess.create(button)
+gui.F_Ship.cmdProcess.caption("Process")
+gui.F_Ship.cmdProcess.visible(True)
+gui.F_Ship.cmdProcess.size(855,375)
+gui.F_Ship.cmdProcess.zorder(0)
+gui.F_Ship.cmdProcess.position(200,6015)
+gui.F_Ship.cmdProcess.enabled(False)
+gui.F_Ship.cmdProcess.fontname("Arial")
+gui.F_Ship.cmdProcess.fontsize(8)
+gui.F_Ship.cmdProcess.event(click,process_shipping)
+gui.F_Ship.cmdProcess.disableonclick(10)
+gui.F_Ship.cmdProcess.defaultvalue("")
+gui.F_Ship.cmdProcess.controlgroup(0)
+gui.F_Ship.cmdOrderLU.create(button)
+gui.F_Ship.cmdOrderLU.caption("^")
+gui.F_Ship.cmdOrderLU.visible(True)
+gui.F_Ship.cmdOrderLU.size(375,375)
+gui.F_Ship.cmdOrderLU.zorder(0)
+gui.F_Ship.cmdOrderLU.position(1425,405)
+gui.F_Ship.cmdOrderLU.enabled(True)
+gui.F_Ship.cmdOrderLU.fontname("Arial")
+gui.F_Ship.cmdOrderLU.fontsize(8)
+gui.F_Ship.cmdOrderLU.event(click,cmdorderlu_click)
+gui.F_Ship.cmdOrderLU.disableonclick(10)
+gui.F_Ship.cmdOrderLU.defaultvalue("")
+gui.F_Ship.cmdOrderLU.controlgroup(0)
+gui.F_Ship.txtInput.create(textbox,"",True,3000,315,0,200,990,False,0,Arial,8,-2147483643,1)
+gui.F_Ship.txtInput.event(keypressenter,txtinput_keypressenter)
+gui.F_Ship.txtInput.maxLength(30)
+gui.F_Ship.txtInput.defaultvalue("")
+gui.F_Ship.txtInput.controlgroup(0)
+gui.F_Ship.lbl7.create(label,"Input",True,1935,255,1,200,765,True,0,Arial,8,-2147483633,0)
+gui.F_Ship.lbl7.defaultvalue("")
+gui.F_Ship.lbl7.controlgroup(0)
+gui.F_Ship.cmdView.create(button)
+gui.F_Ship.cmdView.caption("View Serial/Lot")
+gui.F_Ship.cmdView.visible(True)
+gui.F_Ship.cmdView.size(1725,375)
+gui.F_Ship.cmdView.zorder(0)
+gui.F_Ship.cmdView.position(1160,6015)
+gui.F_Ship.cmdView.enabled(False)
+gui.F_Ship.cmdView.fontname("Arial")
+gui.F_Ship.cmdView.fontsize(8)
+gui.F_Ship.cmdView.event(click,cmdview_click)
+gui.F_Ship.cmdView.disableonclick(10)
+gui.F_Ship.cmdView.defaultvalue("")
+gui.F_Ship.cmdView.controlgroup(0)
+gui.F_Ship.txtPart.create(textbox,"",True,3000,315,0,3310,990,False,0,Arial,8,-2147483643,1)
+gui.F_Ship.txtPart.event(keypressenter,txtinput_keypressenter)
+gui.F_Ship.txtPart.defaultvalue("")
+gui.F_Ship.txtPart.controlgroup(0)
+gui.F_Ship.cmdShipViaLU.create(button)
+gui.F_Ship.cmdShipViaLU.caption("^")
+gui.F_Ship.cmdShipViaLU.visible(True)
+gui.F_Ship.cmdShipViaLU.size(375,375)
+gui.F_Ship.cmdShipViaLU.zorder(0)
+gui.F_Ship.cmdShipViaLU.position(12625,390)
+gui.F_Ship.cmdShipViaLU.enabled(False)
+gui.F_Ship.cmdShipViaLU.fontname("Arial")
+gui.F_Ship.cmdShipViaLU.fontsize(8)
+gui.F_Ship.cmdShipViaLU.event(click,cmdshipvialu_click)
+gui.F_Ship.cmdShipViaLU.disableonclick(10)
+gui.F_Ship.cmdShipViaLU.defaultvalue("")
+gui.F_Ship.cmdShipViaLU.controlgroup(0)
+gui.F_Ship.cmdClear.create(button)
+gui.F_Ship.cmdClear.caption("Clear")
+gui.F_Ship.cmdClear.visible(True)
+gui.F_Ship.cmdClear.size(855,375)
+gui.F_Ship.cmdClear.zorder(0)
+gui.F_Ship.cmdClear.position(6400,975)
+gui.F_Ship.cmdClear.enabled(True)
+gui.F_Ship.cmdClear.fontname("Arial")
+gui.F_Ship.cmdClear.fontsize(8)
+gui.F_Ship.cmdClear.event(click,cmdclear_click)
+gui.F_Ship.cmdClear.defaultvalue("")
+gui.F_Ship.cmdClear.controlgroup(0)
+gui.F_Ship.txtOrder.tabstop(True)
+gui.F_Ship.txtOrder.tabindex(1)
+gui.F_Ship.cmdOrderLU.tabstop(True)
+gui.F_Ship.cmdOrderLU.tabindex(2)
+gui.F_Ship.cmdCarrierLU.tabstop(True)
+gui.F_Ship.cmdCarrierLU.tabindex(3)
+gui.F_Ship.cmdShipViaLU.tabstop(True)
+gui.F_Ship.cmdShipViaLU.tabindex(4)
+gui.F_Ship.txtInput.tabstop(True)
+gui.F_Ship.txtInput.tabindex(5)
+gui.F_Ship.cmdProcess.tabstop(True)
+gui.F_Ship.cmdProcess.tabindex(6)
+gui.F_Ship.cmdView.tabstop(True)
+gui.F_Ship.cmdView.tabindex(7)
+
+
+gui.F_Serial..create
+gui.F_Serial..caption("Serial/Lot Numbers")
+gui.F_Serial..size(13455,7005)
+gui.F_Serial..position(0,0)
+gui.F_Serial..event(resize,f_serial_resize)
+gui.F_Serial..event(unload,f_serial_unload)
+gui.F_Serial..alwaysontop(False)
+gui.F_Serial..fontname("Arial")
+gui.F_Serial..fontsize(8)
+gui.F_Serial..forecolor(0)
+gui.F_Serial..fontstyle(,,,,)
+gui.F_Serial..BackColor(-2147483633)
+gui.F_Serial..controlbox(True)
+gui.F_Serial..maxbutton(True)
+gui.F_Serial..minbutton(True)
+gui.F_Serial..mousepointer(0)
+gui.F_Serial..moveable(True)
+gui.F_Serial..sizeable(True)
+gui.F_Serial..ShowInTaskBar(True)
+gui.F_Serial..titlebar(True)
+gui.F_Serial.gsflexgrid1.create(gsflexgrid)
+gui.F_Serial.gsflexgrid1.FixedRows(0)
+gui.F_Serial.gsflexgrid1.FixedCols(0)
+gui.F_Serial.gsflexgrid1.visible(True)
+gui.F_Serial.gsflexgrid1.size(12795,6090)
+gui.F_Serial.gsflexgrid1.zorder(0)
+gui.F_Serial.gsflexgrid1.position(200,200)
+gui.F_Serial.gsflexgrid1.enabled(True)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Variable.UDT.uGrid.Define("Desc",String,DESCRIPTION)
+Variable.UDT.uGrid.Define("Catalog",String,TEXT_INFO1)
+Variable.UDT.uGrid.Define("Line",String,Line)
+Variable.UDT.uGrid.Define("Part",String,PART)
+Variable.UDT.uGrid.Define("Qty_Scanned",Long)
+Variable.UDT.uGrid.Define("OrderQty",Long,QTY_ORDERED)
+Variable.UDT.uGrid.Define("PromiseDate",String,DATE_ITEM_PROM)
+Variable.uGlobal.uGrid.Declare("uGrid")
+
+
+Variable.UDT.uSerial.Define("Part",String)
+Variable.UDT.uSerial.Define("Serial",String)
+Variable.UDT.uSerial.Define("Lot",String)
+Variable.UDT.uSerial.Define("Bin",String)
+Variable.UDT.uSerial.Define("Heat",String)
+Variable.UDT.uSerial.Define("Line",String)
+Variable.UDT.uSerial.Define("Qty_scanned",Long)
+Variable.UDT.uSerial.Define("Qty_OH",Long)
+Variable.uGlobal.uSerial.Declare("uSerial")
+Variable.Global.sOrder.Declare(String)
+Variable.Global.sCarrier.Declare(String)
+Variable.Global.sShipVia.Declare(String)
+Variable.UDT.uValidate.Define("Desc",String,DESCRIPTION)
+Variable.UDT.uValidate.Define("Line",String,Line)
+Variable.UDT.uValidate.Define("Catalog",String,TEXT_INFO1)
+Variable.UDT.uValidate.Define("OrderQty",String,QTY_ORDERED)
+Variable.UDT.uValidate.Define("Part",String,PART)
+Variable.uGlobal.uValidate.Declare("uValidate")
+Variable.UDT.uCopy.Define("Part",String)
+Variable.UDT.uCopy.Define("Desc",String)
+Variable.UDT.uCopy.Define("Catalog",String)
+Variable.UDT.uCopy.Define("Line",String)
+Variable.UDT.uCopy.Define("Qty_Scanned",Long)
+Variable.UDT.uCopy.Define("OrderQty",Long)
+Variable.UDT.uCopy.Define("PromiseDate",String,DATE_ITEM_PROM)
+Variable.uGlobal.uCopy.Declare("uCopy")
+Variable.Global.sLine.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: JLH
+'Project Start Date: 6/24/2011
+'Editted By: MAT 3/10/14 - Added Promise Date and duplicate scan check
+
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+V.uGlobal.uSerial.Redim(-1,-1)
+V.uGlobal.uGrid.Redim(-1,-1)
+
+Gui.F_Ship.txtOrder.Text("")
+Gui.F_Ship.txtCustomer.Text("")
+Gui.F_Ship.txtCarrier.Text("")
+Gui.F_Ship.txtInput.Text("")
+Gui.F_Ship.txtName.Text("")
+Gui.F_Ship.txtPart.Text("")
+Gui.F_Ship.txtPO.Text("")
+Gui.F_Ship.txtShipVia.Text("")
+
+F.Intrinsic.Control.CallSub(Flexgrid_shipping)
+F.Intrinsic.Control.CallSub(Flexgrid_serial)
+
+Gui.F_Ship.txtCarrier.Locked(true)
+Gui.F_Ship.txtShipVia.Locked(true)
+
+Gui.F_Ship..Show
+
+Program.Sub.Main.End
+
+program.sub.f_ship_unload.start
+F.Intrinsic.Control.End
+
+program.sub.f_ship_unload.end
+
+program.sub.cmdcarrierlu_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdcarrierlu_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+
+'Carrier browser
+V.Local.sQuery.Set("Select Carrier_CD, Long_Desc from OE_CARRIER")
+
+F.Intrinsic.String.Split("Carrier*!*Description","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1000*!*4000","*!*",V.Local.sWidths)
+F.Intrinsic.UI.Browser("Carrier","conx",V.Local.sQuery,V.Local.sTitles,V.local.swidths,5000,5000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_Ship.TxtCarrier.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdcarrierlu_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdcarrierlu_click.end
+
+program.sub.cmdorderlu_click.start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("Create_Error")
+
+'Order browser
+V.Local.sQuery.Set("Select Order_No, customer, date_order, date_due, customer_po from ORDER_HEADER where Record_type='A'")
+F.Intrinsic.String.Split("Order*!*Customer*!*Order Date*!*Due Date*!*PO","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1000*!*1000*!*1000*!*1000*!*1000","*!*",V.local.sWidths)
+F.Intrinsic.UI.Browser("Orders","conx",V.Local.sQuery,V.Local.sTitles,V.Local.sWidths,5000,5000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	Gui.F_Ship.txtCarrier.Text("")
+	Gui.F_Ship.txtCustomer.Text("")
+	Gui.F_Ship.txtName.Text("")
+	Gui.F_Ship.txtShipVia.Text("")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_Ship.txtOrder.Text(V.Local.sRet(0))
+	Gui.F_Ship.txtCustomer.Text(V.Local.sRet(1))
+	Gui.F_Ship.txtPO.Text(V.Local.sRet(4))
+	F.Intrinsic.Control.CallSub(Customer_populate,"customer",V.Local.sRet(1))
+	F.Intrinsic.Control.CallSub(Carrier_populate)
+	F.Intrinsic.Control.CallSub(Shipping_udt)
+	Gui.F_Ship.txtInput.SetFocus
+F.Intrinsic.Control.EndIf
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Create_Error")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Concat("Error Occured",V.Ambient.ErrorDescription,V.local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+F.Intrinsic.Control.EndIf
+
+program.sub.cmdorderlu_click.end
+
+Program.Sub.flexgrid_shipping.Start
+F.Intrinsic.Control.SetErrorHandler("ship_flex_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Build shipping flexgrid
+' 10/11/15 -- jct --quote7026
+' -- add columns to allow manual entry of Cartons and Gross Weight
+Gui.F_Ship.gsflexgrid1.Rows(1)
+Gui.F_Ship.gsflexgrid1.Cols(9)
+Gui.F_Ship.gsflexgrid1.Rows(2)
+
+Gui.F_Ship.gsflexgrid1.SetColumnPercentages(".05:.15:.15:.30:.06:.06:.08:.06:.08")
+
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,0,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,1,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,2,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,3,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,4,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,5,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,6,"type","Locked",True)
+
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,0,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,1,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,2,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,3,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,4,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,5,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,6,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,7,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(1,8,"format","alignment",4)
+
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,0,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,1,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,2,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,3,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,4,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,5,"type","Locked",True)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,6,"type","Locked",True)
+
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,0,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,1,"format","alignment",2)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,2,"format","alignment",2)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,3,"format","alignment",2)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,4,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,5,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,6,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,7,"format","alignment",4)
+Gui.F_Ship.gsflexgrid1.BuildStyle(2,8,"format","alignment",4)
+
+Gui.F_Ship.gsflexgrid1.TextMatrix(0,0,"Line")
+Gui.F_Ship.gsflexgrid1.TextMatrix(1,0,"Part")
+Gui.F_Ship.gsflexgrid1.TextMatrix(2,0,"Catalog")
+Gui.F_Ship.gsflexgrid1.TextMatrix(3,0,"Desc")
+Gui.F_Ship.gsflexgrid1.TextMatrix(4,0,"Qty Ordered")
+Gui.F_Ship.gsflexgrid1.TextMatrix(5,0,"Qty Scanned")
+Gui.F_Ship.gsflexgrid1.TextMatrix(6,0,"Date")
+Gui.F_Ship.gsflexgrid1.TextMatrix(7,0,"Cartons")
+Gui.F_Ship.gsflexgrid1.TextMatrix(8,0,"Gross Weight")
+
+Gui.F_Ship.gsflexgrid1.ApplyStyle(0,1)
+Gui.F_Ship.gsflexgrid1.FixedRows(1)
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("ship_flex_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.flexgrid_shipping.End
+
+program.sub.shipping_UDT.start
+F.Intrinsic.Control.SetErrorHandler("populate_fields_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.iCount.Declare(Long)
+V.Local.iUB.Declare(Long,0)
+V.Local.sPart.Declare(String)
+
+V.Local.sPos.Declare(String,"1*!*5*!*7")
+F.Intrinsic.String.Split(V.Local.sPos,"*!*",V.Local.sPos)
+V.Local.sLen.Declare(String,"4*!*2*!*2")
+F.Intrinsic.String.Split(V.Local.sLen,"*!*",V.Local.sLen)
+V.Local.sRet.Declare(String)
+
+'F.Intrinsic.Debug.Stop
+
+'Enable controls
+F.Intrinsic.Control.If(V.Screen.F_Ship!txtOrder.Text,<>,"")
+	F.Intrinsic.String.Concat("Select OL.PART, LEFT(OL.RECORD_NO,3) Line, IM.DESCRIPTION, OL.QTY_ORDERED, IM2.TEXT_INFO1, OL.DATE_ITEM_PROM from ORDER_LINES OL LEFT JOIN INVENTORY_MSTR IM ON OL.PART=IM.PART and OL.LOCATION=IM.LOCATION LEFT JOIN INVENTORY_MST2 IM2 ON IM.PART=IM2.PART and IM.LOCATION=IM2.LOCATION where OL.Record_Type='L' and record_no <> '8000' and ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' Order by RECORD_NO",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.sQuery)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","uglobal.uGrid","false",10000)
+	F.ODBC.conx!rst.Close
+
+	Gui.F_Ship.txtInput.Enabled(true)
+	Gui.F_Ship.txtCarrier.Enabled(true)
+	Gui.F_Ship.txtShipVia.Enabled(true)
+	Gui.F_Ship.cmdCarrierLU.Enabled(true)
+	Gui.F_Ship.cmdShipViaLU.Enabled(true)
+	Gui.F_Ship.cmdView.Enabled(true)
+	Gui.F_Ship.cmdProcess.Enabled(true)
+
+	Gui.F_Ship.gsflexgrid1.Rows(1)
+	Gui.F_Ship.gsflexgrid1.Rows(2)
+	Gui.F_Ship.gsflexgrid1.FixedRows(1)
+'
+'	V.uGlobal.uGrid.Redim(-1,-1)
+'
+	'Clear fields
+	Gui.F_Ship.txtPart.Text("")
+	Gui.F_Ship.txtInput.Text("")
+'
+'	'Redims the serial UDT if global variable is not blank. This makes sure the UDT is cleared out if the order is changed.
+'	F.Intrinsic.Control.If(V.Global.sOrder,=,"")
+'		V.Global.sOrder.Set(V.Screen.F_Ship!txtOrder.Text)
+'	F.Intrinsic.Control.Else
+'		F.Intrinsic.Control.If(V.Global.sOrder,<>,V.Screen.F_Ship!txtOrder.Text)
+'			V.uGlobal.uSerial.Redim(-1,-1)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.EndIf
+'
+''
+'F.Intrinsic.Debug.Stop
+'
+''Loop through the record set and build UDT
+'	F.Intrinsic.String.Concat("Select * from ORDER_LINES where RECORD_TYPE='L' and ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' Order by RECORD_NO",V.Local.sQuery)
+'	F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.sQuery)
+'	F.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+'		F.Intrinsic.Control.If(V.uGlobal.uGrid.UBound,=,-1)
+'			V.uGlobal.uGrid.Redim(0,0)
+'		F.Intrinsic.Control.Else
+'			V.Local.iUB.Set(V.uGlobal.uGrid.UBound)
+'			F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+'			V.uGlobal.uGrid.RedimPreserve(0,V.Local.iUB)
+'		F.Intrinsic.Control.EndIf
+'		F.Intrinsic.String.Left(V.ODBC.conx!rst.FieldVal!RECORD_NO,3,V.Local.sTemp)
+'		V.uGlobal.uGrid(v.Local.iUB)!Line.set(V.Local.sTemp)
+'		F.Intrinsic.String.GSSPartString(V.ODBC.conx!rst.FieldVal!PART,,V.Local.sPart)
+'		'V.uGlobal.uGrid(v.Local.iUB)!Part.Set(V.ODBC.conx!rst.FieldVal!PART)
+'		V.uGlobal.uGrid(v.Local.iUB)!Part.Set(V.Local.sPart)
+'		F.Intrinsic.String.Concat("Select * From INVENTORY_MST2 where PART='",V.Local.sPart,"'",V.Local.sQuery)
+'		F.ODBC.Connection!conx.OpenRecordsetRO("rstPart",V.Local.sQuery)
+'		F.Intrinsic.Control.If(V.ODBC.conx!rstPart.EOF,=,False)
+'			V.uGlobal.uGrid(v.Local.iUB)!Catalog.set(V.ODBC.conx!rstPart.FieldVal!TEXT_INFO1)
+'		F.Intrinsic.Control.Else
+'			V.uGlobal.uGrid(v.Local.iUB)!Catalog.Set("")
+'		F.Intrinsic.Control.EndIf
+'		F.ODBC.conx!rstPart.Close
+'		F.Intrinsic.String.Concat("Select * From INVENTORY_MSTR where PART='",V.Local.sPart,"'",V.Local.sQuery)
+'		F.ODBC.Connection!conx.OpenRecordsetRO("rstPart",V.Local.sQuery)
+'		F.Intrinsic.Control.If(V.ODBC.conx!rstPart.EOF,=,False)
+'			V.uGlobal.uGrid(v.Local.iUB)!Desc.set(V.ODBC.conx!rstPart.FieldVal!DESCRIPTION)
+'		F.Intrinsic.Control.Else
+'			V.uGlobal.uGrid(v.Local.iUB)!Desc.Set("")
+'		F.Intrinsic.Control.EndIf
+'		F.ODBC.conx!rstPart.Close
+'		V.uGlobal.uGrid(v.Local.iUB)!OrderQty.set(V.ODBC.conx!rst.FieldVal!QTY_ORDERED)
+'		F.ODBC.conx!rst.MoveNext
+'	F.Intrinsic.Control.Loop
+'	F.ODBC.conx!rst.Close
+
+	' add additional details, before loading grid
+	F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uGrid.UBound,1)
+		' 10/11/15 -- jct --quote7026
+		' look up Cartonand Gross Weight
+
+		'Modifying PromiseDate
+		F.Intrinsic.String.PositionalSplit(V.uGlobal.uGrid(v.Local.iCount)!PromiseDate,V.Local.sPos,V.Local.sLen,V.Local.sRet)
+		F.Intrinsic.String.Concat(V.Local.sRet(1),"/",V.Local.sRet(2),"/",V.Local.sRet(0),V.uGlobal.uGrid(v.Local.iCount)!PromiseDate)
+	F.Intrinsic.Control.Next(V.Local.iCount)
+	'Load UDT to flexgrid
+' 10/11/15 -- jct --quote7026
+' hide grid while loading
+	Gui.F_Ship.gsflexgrid1.Visible(False)
+	Gui.F_Ship.gsflexgrid1.LoadFromUDT("uGlobal.uGrid","Line::0*!*Part::1*!*Catalog::2*!*Desc::3*!*OrderQty::4*!*PromiseDate::6",2)
+	Gui.F_Ship.gsflexgrid1.Visible(True)
+
+F.Intrinsic.Control.EndIf
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("populate_fields_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.shipping_UDT.end
+
+program.sub.txtinput_keypressenter.start
+'User scans barcode. Determine whether the barcode is a part or a serial number. If it's a part, use UDT seek to find the part on the order lines. If it finds a match, add one to the scanned quantity. If scanned quantity is going to exceed ordered
+'quanity, give error message and don't add. If it doesn't find a match, give error message. Part number then goes into the textbox next to the input textbox so the user can scan the corresponding serial number. If another part is scanned,
+'give error message. If serial number is scanned, call subroutine to verify serial number and add to serial number UDT and clear part textbox. If a serial number is scanned without scanning a part number first, give error message.
+
+V.Local.sError.Declare(String)
+V.Local.iRow.Declare(Long)
+V.Local.iQuant.Declare(Long)
+V.Local.bRet.Declare(Boolean)
+V.Local.sRet.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.iL.Declare(Long)
+V.Local.sTemp.Declare(String)
+V.Local.bQuant.Declare(Boolean,False)
+
+F.Intrinsic.Control.SetErrorHandler("Create_Error")
+
+'
+'F.Intrinsic.Debug.Stop
+
+F.Intrinsic.Control.If(V.Screen.F_Ship!txtInput.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.F_Ship!txtPart.text,<>,"")
+		F.Intrinsic.Control.CallSub(Serial_udt)
+
+		'Updating grid quantity after serial check
+		F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uGrid!Line,V.Args.LINE,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+			F.Intrinsic.Math.Add(V.uGlobal.uGrid(v.Local.sRet)!Qty_Scanned,1,V.Local.iQuant)
+			F.Intrinsic.Control.If(V.Local.iQuant,<=,V.uGlobal.uGrid(v.Local.sRet)!OrderQty)
+				F.Intrinsic.Math.Add(V.Local.sRet,1,V.Local.iRow)
+				Gui.F_Ship.gsflexgrid1.TextMatrix(5,V.Local.iRow,V.Local.iQuant)
+				V.uGlobal.uGrid(v.Local.sRet)!Qty_Scanned.Set(V.Local.iQuant)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Else
+		
+		F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uGrid!Part,V.Screen.F_Ship!txtInput.Text,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+
+			F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.local.sRet)
+
+			F.Intrinsic.Control.For(V.Local.iL,0,V.Local.sRet.UBound,1)
+				V.local.sTemp.Set(V.Local.sRet(v.Local.iL))
+				F.Intrinsic.Math.Add(V.uGlobal.uGrid(v.Local.sTemp)!Qty_Scanned,1,V.Local.iQuant)
+				F.Intrinsic.Control.If(V.Local.iQuant,>,V.uGlobal.uGrid(v.Local.sTemp)!OrderQty)
+					V.Local.bQuant.Set(True)
+				F.Intrinsic.Control.Else
+					V.Local.bQuant.Set(False)
+					F.Intrinsic.Math.Add(V.Local.sRet(v.Local.iL),1,V.Local.iRow)
+					'Gui.F_Ship.gsflexgrid1.TextMatrix(5,V.Local.iRow,V.Local.iQuant)
+					'V.uGlobal.uGrid(v.Local.sTemp)!Qty_Scanned.Set(V.Local.iQuant)
+					V.Global.sLine.Set(V.uGlobal.uGrid(v.Local.sTemp)!Line)
+					F.Intrinsic.Control.ExitFor(V.Local.iL)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Next(V.Local.iL)
+					
+			F.Intrinsic.Control.If(V.Local.bQuant,=,True)
+				F.Intrinsic.UI.Msgbox("Quantity scanned exceeds Order Quantity")
+				Gui.F_Ship.txtInput.Text("")
+				F.Intrinsic.Control.ExitSub
+			F.Intrinsic.Control.Endif
+
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Part not found on order lines")
+			Gui.F_Ship.txtInput.Text("")
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+		Gui.F_Ship.gsflexgrid1.GetTextMatrix(1,V.Local.iRow,V.Local.sRet)
+		Gui.F_Ship.txtPart.Text(V.Local.sRet)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Gui.F_Ship.txtInput.Text("")
+Gui.F_Ship.txtInput.SetFocus
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Create_Error")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Concat("Error Occured",V.Ambient.ErrorDescription,V.local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+F.Intrinsic.Control.EndIf
+
+program.sub.txtinput_keypressenter.end
+
+Program.Sub.serial_UDT.Start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sQuery.Declare(String)
+V.local.iUB.Declare(Long,0)
+V.Local.iRet.Declare(Long)
+V.Local.sPart.Declare(String)
+V.Local.sLot.Declare(String)
+V.Local.sSerial.Declare(String)
+V.Local.iPos.Declare(Long)
+
+F.Intrinsic.Control.SetErrorHandler("Create_Error")
+
+F.Intrinsic.String.GSSPartString(V.Screen.F_Ship!txtPart.Text,,V.Local.sPart)
+'F.Intrinsic.String.Trim(V.Screen.F_Ship!txtPart.Text,V.Local.sQuery)
+
+'Verify serial number, then add to serial UDT
+F.Intrinsic.String.Len(V.Screen.F_Ship!txtInput.Text,V.Local.iRet)
+F.Intrinsic.Control.If(V.Local.iRet,>,6)
+	F.Intrinsic.String.Left(V.Screen.F_Ship!txtInput.Text,2,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,=,"10")
+		'Lot
+		'F.Intrinsic.String.Len(V.Screen.F_Ship!txtInput.Text,V.Local.iRet)
+		F.Intrinsic.Math.Sub(V.Local.iRet,11,V.Local.iRet)
+		F.Intrinsic.String.Mid(V.Screen.F_Ship!txtInput.Text,3,V.Local.iRet,V.Local.sLot)
+		F.Intrinsic.String.Concat("Select top 1* from ITEM_MASTER where PART='",V.Local.sPart,"' and LOT='",V.Local.sLot,"' order by PART",V.Local.sQuery)
+		F.Intrinsic.Variable.UDTMultiSeekNoTrim(V.uGlobal.uSerial!Line,V.Global.sLine,V.uGlobal.uSerial!Part,V.Local.sPart,V.uGlobal.uSerial!Lot,V.Local.sLot,V.Local.sRet)
+	F.Intrinsic.Control.Else
+		'Serial
+		'F.Intrinsic.String.Len(V.Screen.F_Ship!txtInput.Text,V.Local.iRet)
+		F.Intrinsic.Math.Sub(V.Local.iRet,11,V.Local.iRet)
+		F.Intrinsic.String.Mid(V.Screen.F_Ship!txtInput.Text,3,V.Local.iRet,V.Local.sSerial)
+		F.Intrinsic.String.Concat("Select top 1* from ITEM_MASTER where PART='",V.Local.sPart,"' and SERIAL_NUMBER ='",V.Local.sSerial,"' order by PART",V.Local.sQuery)
+		F.Intrinsic.Variable.UDTMultiSeekNoTrim(V.uGlobal.uSerial!Line,V.Global.sLine,V.uGlobal.uSerial!Part,V.Local.sPart,V.uGlobal.uSerial!Serial,V.Local.sSerial,V.Local.sRet)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	'6 digit lot
+	V.Local.sLot.Set(V.Screen.F_Ship!txtInput.Text)
+	F.Intrinsic.String.Concat("Select top 1* from ITEM_MASTER where PART='",V.Local.sPart,"' and LOT='",V.Local.sLot,"' order by PART",V.Local.sQuery)
+	F.Intrinsic.Variable.UDTMultiSeekNoTrim(V.uGlobal.uSerial!Line,V.Global.sLine,V.uGlobal.uSerial!Part,V.Local.sPart,V.uGlobal.uSerial!Lot,V.Local.sLot,V.Local.sRet)
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+	F.Intrinsic.Control.If(V.ODBC.conx!rst.FieldVal!QTY_AVAILABLE_SHIP,>,0)
+		F.Intrinsic.Control.If(V.Local.sRet,=,"")
+			F.Intrinsic.Control.If(V.uGlobal.uSerial.UBound,=,-1)
+				V.uGlobal.uSerial.Redim(0,0)
+			F.Intrinsic.Control.Else
+				V.Local.iUB.Set(V.uGlobal.uSerial.UBound)
+				F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+				V.uGlobal.uSerial.RedimPreserve(0,V.Local.iUB)
+			F.Intrinsic.Control.EndIf
+			V.uGlobal.uSerial(v.local.iUB)!Part.Set(V.Local.sPart)
+			V.uGlobal.uSerial(v.local.iUB)!Serial.Set(V.ODBC.conx!rst.FieldValTrim!SERIAL_NUMBER)
+			V.uGlobal.uSerial(v.Local.iUB)!Lot.Set(V.ODBC.conx!rst.FieldValTrim!LOT)
+			V.uGlobal.uSerial(v.Local.iUB)!Bin.Set(V.ODBC.conx!rst.FieldValTrim!BIN)
+			V.uGlobal.uSerial(v.Local.iUB)!Heat.Set(V.ODBC.conx!rst.FieldValTrim!HEAT)
+			V.uGlobal.uSerial(v.Local.iUB)!Line.Set(V.Global.sLine)
+			V.uGlobal.uSerial(v.Local.iUB)!Qty_OH.Set(V.ODBC.conx!rst.FieldVal!QTY_AVAILABLE_SHIP)
+			V.uGlobal.uSerial(v.Local.iUB)!Qty_scanned.Set(1)
+			F.ODBC.conx!rst.Close
+			Gui.F_Ship.txtPart.Text("")
+			F.Intrinsic.Variable.AddRV("LINE",V.Global.sLine)
+			V.Global.sLine.Set("")
+
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			V.Local.iPos.Set(V.local.sRet(0))
+			F.Intrinsic.Math.Add(V.uGlobal.uSerial(v.Local.iPos)!Qty_scanned,1,V.Local.iRet)
+			F.Intrinsic.Control.If(V.Local.iRet,=<,V.uGlobal.uSerial(v.Local.iPos)!Qty_OH)
+				'Update quantity scanned
+				V.uGlobal.uSerial(v.Local.iPos)!Qty_scanned.Set(V.Local.iRet)
+				F.ODBC.conx!rst.Close
+				Gui.F_Ship.txtPart.Text("")
+				F.Intrinsic.Variable.AddRV("LINE",V.Global.sLine)
+				V.Global.sLine.Set("")
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Quantity is Zero")
+				F.ODBC.conx!rst.Close
+				F.Intrinsic.Variable.AddRV("LINE","")
+				F.Intrinsic.Control.ExitSub
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Quantity is Zero")
+		F.ODBC.conx!rst.Close
+		F.Intrinsic.Variable.AddRV("LINE","")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Invalid Lot/Serial Number")
+	F.ODBC.conx!rst.Close
+	F.Intrinsic.Variable.AddRV("LINE","")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Create_Error")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Concat("Error Occured",V.Ambient.ErrorDescription,V.local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.serial_UDT.End
+
+program.sub.f_serial_unload.start
+Gui.F_Serial..Visible(False)
+
+program.sub.f_serial_unload.end
+
+Program.Sub.flexgrid_serial.Start
+F.Intrinsic.Control.SetErrorHandler("flexgrid_serial_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Build serial flexgrid
+Gui.F_Serial.gsflexgrid1.Cols(8)
+Gui.F_Serial.gsflexgrid1.Rows(2)
+
+Gui.F_Serial.gsflexgrid1.SetColumnPercentages(".08:.16:.16:.16:.16:.16:.06:.06")
+
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,0,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,1,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,2,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,3,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,4,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,5,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,6,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,7,"type","Locked",True)
+
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,0,"format","alignment",4)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,1,"format","alignment",4)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,2,"format","alignment",4)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,3,"format","alignment",4)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,4,"format","alignment",4)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,5,"format","alignment",4)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,6,"format","alignment",4)
+Gui.F_Serial.gsflexgrid1.BuildStyle(1,7,"format","alignment",4)
+
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,0,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,1,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,2,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,3,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,4,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,5,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,6,"type","Locked",True)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,7,"type","Locked",True)
+
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,0,"format","alignment",2)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,1,"format","alignment",2)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,2,"format","alignment",6)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,3,"format","alignment",6)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,4,"format","alignment",6)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,5,"format","alignment",6)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,6,"format","alignment",6)
+Gui.F_Serial.gsflexgrid1.BuildStyle(2,7,"format","alignment",6)
+
+Gui.F_Serial.gsflexgrid1.TextMatrix(0,0,"Line")
+Gui.F_Serial.gsflexgrid1.TextMatrix(1,0,"Part")
+Gui.F_Serial.gsflexgrid1.TextMatrix(2,0,"Serial")
+Gui.F_Serial.gsflexgrid1.TextMatrix(3,0,"Lot")
+Gui.F_Serial.gsflexgrid1.TextMatrix(4,0,"Bin")
+Gui.F_Serial.gsflexgrid1.TextMatrix(5,0,"Heat")
+Gui.F_Serial.gsflexgrid1.TextMatrix(6,0,"Qty")
+Gui.F_Serial.gsflexgrid1.TextMatrix(7,0,"Scanned")
+
+Gui.F_Serial.gsflexgrid1.ApplyStyle(0,1)
+
+'Gui.F_Serial.gsflexgrid1.Rows(2)
+Gui.F_Serial.gsflexgrid1.FixedRows(1)
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("flexgrid_serial_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.flexgrid_serial.End
+
+program.sub.cmdview_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdview_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Load UDT to serial flexgrid and show screen
+Gui.F_Serial.gsflexgrid1.LoadFromUDT("uGlobal.uSerial","Line*!*Part*!*Serial*!*Lot*!*Bin*!*Heat*!*Qty_OH*!*Qty_Scanned",2)
+
+F.Intrinsic.Control.If(V.uGlobal.uSerial.UBound,>,-1)
+	Gui.F_Serial.gsflexgrid1.Fixedrows(1)
+F.Intrinsic.Control.Else
+	Gui.F_Serial.gsflexgrid1.Rows(2)
+	Gui.F_Serial.gsflexgrid1.FixedRows(1)
+F.Intrinsic.Control.EndIf
+
+Gui.F_Serial..Show
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdview_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdview_click.end
+
+program.sub.cmdshipvialu_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdshipvialu_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+'Ship via browser
+V.Local.sQuery.Set("Select Ship_Via_Code, Ship_Via from AR_Ship_Via where Ass_Sys='AR' and Ass_Sub_Sys='VIA' ")
+F.Intrinsic.String.Split("ID*!*Ship Via","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("500*!*3000","*!*",V.Local.sWidths)
+F.Intrinsic.UI.Browser("Ship Via","conx",V.Local.sQuery,V.Local.sTitles,V.local.swidths,5000,5000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_Ship.txtShipVia.Text(V.Local.sRet(1))
+F.Intrinsic.Control.EndIf
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdshipvialu_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdshipvialu_click.end
+
+program.sub.txtorder_keypressenter.start
+'If user scans order number, look up order information and populate fields, then call subroutine to build udt to populate the flexgrid
+
+F.Intrinsic.Control.SetErrorHandler("txtorder_keypressenter_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sText.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_Ship!txtOrder.Text,<>,"")
+	F.Intrinsic.String.Concat("Select * from ORDER_HEADER where Record_type='A' AND ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"'",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenRecordsetRO("rstOrder",V.local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.conx!rstOrder.EOF,=,False)
+		Gui.F_Ship.txtCustomer.Text(V.ODBC.conx!rstOrder.FieldValTrim!CUSTOMER)
+		Gui.F_Ship.txtPO.Text(V.ODBC.conx!rstOrder.FieldValTrim!CUSTOMER_PO)
+		F.Intrinsic.Control.CallSub(Customer_populate,"customer",V.ODBC.conx!rstOrder.FieldValTrim!CUSTOMER)
+		F.Intrinsic.Control.CallSub(Carrier_populate)
+		F.Intrinsic.Control.CallSub(Shipping_udt)
+		F.ODBC.conx!rstOrder.Close
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Invalid Order Number")
+		F.ODBC.conx!rstOrder.Close
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Gui.F_Ship.txtInput.SetFocus
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("txtorder_keypressenter_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.txtorder_keypressenter.end
+
+Program.Sub.customer_populate.Start
+F.Intrinsic.Control.SetErrorHandler("Customer_LU_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+
+'Populates customer name
+F.Intrinsic.String.Concat("Select * from CUSTOMER_MASTER where REC='1' AND Customer like '%",V.args.customer,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstCust",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstCust.EOF,=,False)
+	Gui.F_Ship.txtName.Text(V.ODBC.conx!rstCust.FieldVal!NAME_CUSTOMER)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstCust.Close
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Customer_LU_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.customer_populate.End
+
+Program.Sub.carrier_populate.Start
+F.Intrinsic.Control.SetErrorHandler("Newsub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+
+'Looks in table for carrier and ship via, populates fields on screen
+F.Intrinsic.String.Concat("Select * from ORDER_SHIP_TO where ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' AND RECORD_TYPE='A'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstCarrier",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstCarrier.EOF,=,False)
+	V.Global.sCarrier.Set(V.ODBC.conx!rstCarrier.FieldValTrim!Carrier_CD)
+	V.Global.sShipVia.Set(V.ODBC.conx!rstCarrier.FieldValTrim!SHIP_VIA_SHIP)
+	Gui.F_Ship.txtCarrier.Text(V.ODBC.conx!rstCarrier.FieldValTrim!CARRIER_CD)
+	Gui.F_Ship.txtShipVia.Text(V.ODBC.conx!rstCarrier.FieldValTrim!SHIP_VIA_SHIP)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstCarrier.Close
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Newsub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.carrier_populate.End
+
+Program.Sub.process_shipping.Start
+F.Intrinsic.Control.SetErrorHandler("Process_Err")
+F.Intrinsic.Control.ClearErrors
+
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sCarrier.Declare(String)
+
+F.Intrinsic.Control.If(V.uGlobal.uSerial.UBound,<>,-1)
+	F.Intrinsic.Control.CallSub(Ol_validation)
+	F.Intrinsic.Control.If(V.Args.bRet,=,"True")
+
+		'Updates carrier and ship via
+		F.Intrinsic.Control.If(V.Screen.F_Ship!txtOrder.Text,<>,"")
+			F.Intrinsic.Control.If(V.Screen.F_Ship!txtPart.Text,=,"")
+
+				' carrier changed
+				F.Intrinsic.Control.If(V.Global.sCarrier,<>,V.Screen.F_Ship!txtCarrier.Text)
+					V.Local.sCarrier.Set(V.Screen.F_Ship!txtCarrier.Text)
+					F.Intrinsic.String.Concat("Select * from ORDER_SHIP_TO where ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' AND RECORD_TYPE='C'",V.Local.sQuery)
+					F.ODBC.Connection!conx.OpenRecordsetRW("rst",V.Local.sQuery)
+					F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+						F.ODBC.conx!rst.Set!CARRIER_CD(V.Screen.F_Ship!txtCarrier.Text)
+						F.ODBC.conx!rst.Update
+					F.Intrinsic.Control.EndIf
+					F.ODBC.conx!rst.Close
+					F.Intrinsic.String.Concat("Select * from ORDER_HEADER where ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' AND RECORD_TYPE='A'",V.Local.sQuery)
+					F.ODBC.Connection!conx.OpenRecordsetRW("rst",V.Local.sQuery)
+					F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+						F.ODBC.conx!rst.Set!CARRIER_CD(V.Screen.F_Ship!txtCarrier.Text)
+						F.ODBC.conx!rst.Update
+					F.Intrinsic.Control.EndIf
+					F.ODBC.conx!rst.Close
+				F.Intrinsic.Control.EndIf
+
+				' ship via changed
+				F.Intrinsic.Control.If(V.Global.sShipVia,<>,V.Screen.F_Ship!txtShipVia.Text)
+					F.Intrinsic.String.Concat("Select * from ORDER_SHIP_TO where ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' AND RECORD_TYPE='C'",V.Local.sQuery)
+					F.ODBC.Connection!conx.OpenRecordsetRW("rst",V.Local.sQuery)
+					F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+						F.ODBC.conx!rst.Set!SHIP_VIA_SHIP(V.Screen.F_Ship!txtShipVia.Text)
+						F.ODBC.conx!rst.Update
+					F.Intrinsic.Control.EndIf
+					F.ODBC.conx!rst.Close
+					F.Intrinsic.String.Concat("Select * from ORDER_HEADER where ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' AND RECORD_TYPE='A'",V.Local.sQuery)
+					F.ODBC.Connection!conx.OpenRecordsetRW("rst",V.Local.sQuery)
+					F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+						F.ODBC.conx!rst.Set!SHIP_VIA(V.Screen.F_Ship!txtShipVia.Text)
+						F.ODBC.conx!rst.Update
+					F.Intrinsic.Control.EndIf
+					F.ODBC.conx!rst.Close
+				F.Intrinsic.Control.EndIf
+
+				' build shipment file
+				F.Intrinsic.Control.CallSub(Build_file,"Carrier",V.Local.sCarrier)
+
+			' blank part
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Please scan a serial number")
+				F.Intrinsic.Control.ExitSub
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+
+	' blank order no
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Sales Order has been updated. Please view the updated pick list")
+		F.Intrinsic.Control.CallSub(Update_grid)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Nothing to Process")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Process_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.process_shipping.End
+
+Program.Sub.build_file.Start
+F.Intrinsic.Control.SetErrorHandler("build_file_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.iCount.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sType.Declare(String)
+V.Local.sCarrier.Declare(String)
+
+
+'Loop through serial number UDT and use UDT seek to find the line number. Concat string for comma delimited file.
+F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uSerial.UBound,1)
+	F.Intrinsic.Control.If(V.Local.iCount,<>,0)
+		F.Intrinsic.String.Concat(V.Local.sText,V.Ambient.newline,V.Local.sText)
+	F.Intrinsic.Control.EndIf
+	' order, line, Qty, Lot, Bin, Heat, Serial, Carton#, Carton Code, Pallet Serial, Pallet Code, Pallet#
+	F.Intrinsic.String.Concat(V.Local.sText,V.Screen.F_Ship!txtOrder.Text,V.Local.sText)
+	F.Intrinsic.String.Concat(V.Local.sText,",",V.uGlobal.uSerial(v.Local.iCount)!Line,",",V.uGlobal.uSerial(v.Local.iCount)!Qty_scanned,",",V.uGlobal.uSerial(v.Local.iCount)!Lot,",",V.uGlobal.uSerial(v.Local.iCount)!Bin,",",V.uGlobal.uSerial(v.Local.iCount)!Heat,",",V.uGlobal.uSerial(v.Local.iCount)!Serial,",,,,,",V.Local.sText)
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+'Write string to file
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.caller.terminal,"SHIPFILE.txt",V.local.sfile)
+F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sText)
+
+F.Intrinsic.String.Split(V.Local.sFile,".",V.Local.sFile)
+
+F.Intrinsic.Control.If(V.Args.Carrier.Trim,=,"")
+	V.Local.sCarrier.Set(V.Global.sCarrier)
+F.Intrinsic.Control.Else
+	V.Local.sCarrier.Set(V.Args.Carrier)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Concat("Select SRVC_TYPE FROM OE_CARRIER where CARRIER_CD ='",V.Local.sCarrier,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+	V.Local.sType.Set(V.ODBC.conx!rst.FieldValTrim!SRVC_TYPE)
+F.Intrinsic.Control.Endif
+F.ODBC.conx!rst.Close
+
+'Concat parameters for program
+F.Intrinsic.String.RPad(V.local.sCarrier," ",6,V.Local.sRet)
+F.Intrinsic.String.LPad(V.Local.sType,"0",3,V.Local.sType)
+F.Intrinsic.String.Concat(V.Ambient.QuadQuote,V.Caller.CompanyCode,V.Caller.Terminal,"SHIPFILE",V.Local.sRet,V.local.sType,V.Ambient.QuadQuote,V.Local.sRet)
+
+
+F.Intrinsic.Debug.SetLA(V.Local.sRet)
+F.Intrinsic.task.SetEnvironmentVariable("GS_USER",V.Caller.User)
+
+'Call program to process shipment
+F.Intrinsic.Debug.CallWrapperDebugDisable
+F.Intrinsic.Task.LaunchGSSsync("ORD98HOD","-c",V.Local.sRet)
+
+F.Intrinsic.Control.CallSub(Verify)
+
+'Error handling
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("build_file_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.build_file.End
+
+program.sub.f_serial_resize.start
+Gui.F_Serial..Sizeable(false)
+Gui.F_Serial..MaxButton(false)
+
+program.sub.f_serial_resize.end
+
+program.sub.f_ship_resize.start
+Gui.F_Ship..Sizeable(false)
+Gui.F_Ship..MaxButton(false)
+
+program.sub.f_ship_resize.end
+
+Program.Sub.verify.Start
+F.Intrinsic.Control.SetErrorHandler("verify_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.iCount.Declare(Long,0)
+V.Local.iHdl.Declare(Long)
+V.Local.bRet.Declare(Boolean)
+
+'
+'F.Intrinsic.Debug.Stop
+
+V.Local.iHdl.Set(V.uGlobal.uSerial.UBound)
+F.Intrinsic.Math.Add(V.Local.iHdl,1,V.Local.iHdl)
+
+F.Intrinsic.String.Concat("Select TOP ",V.Local.iHdl," * From SHIPMENT_LOG where ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' ORDER BY DATE_SHIP DESC, TIME_SHIP DESC",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.sQuery)
+V.Local.sText.Set("Order did not ship!")
+F.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+	F.Intrinsic.Control.If(V.ODBC.conx!rst.FieldValTrim!Status,<>,"Successful")
+		F.Intrinsic.Math.Add(V.Local.iCount,1,V.Local.iCount)
+		F.Intrinsic.String.Concat(V.Local.sText,V.ambient.newline,V.ODBC.conx!rst.FieldVal!ORDER_LINE," ",V.ODBC.conx!rst.FieldVal!PART," ",V.ODBC.conx!rst.FieldVal!PART_DESC," ",V.ODBC.conx!rst.FieldVal!QUANTITY," ",V.ODBC.conx!rst.FieldVal!STATUS,V.Local.sText)
+		F.Intrinsic.String.Concat(V.Local.sText,"Description: ",V.ODBC.conx!rst.FieldValTrim!PART_DESC,V.Ambient.NewLine,"Quantity: ",V.ODBC.conx!rst.FieldValTrim!QUANTITY,V.Ambient.NewLine,"Customer: ",V.ODBC.conx!rst.FieldValTrim!CUSTOMER,V.Ambient.NewLine,"Name: ",V.ODBC.conx!rst.FieldValTrim!SHIP_NAME,V.Local.sText)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conx!rst.MoveNext
+F.Intrinsic.Control.Loop
+	
+F.Intrinsic.Control.If(V.Local.iCount,>,0)
+	F.Intrinsic.UI.MsgBoxExt("Error",V.Local.sText)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("Order ",V.Screen.F_Ship!txtOrder.Text," Shipped",V.Local.sText)
+	F.Intrinsic.UI.Msgbox(V.Local.sText)
+
+	' 10/11/15 -- jct --quote7026
+	' update Cartons and Gross weight to Order Header
+	F.Intrinsic.Control.CallSub(Headerupdate)
+
+	V.uGlobal.uSerial.Redim(-1,-1)
+	V.uGlobal.uGrid.Redim(-1,-1)
+	Gui.F_Ship.txtOrder.Text("")
+	Gui.F_Ship.txtCustomer.Text("")
+	Gui.F_Ship.txtCarrier.Text("")
+	Gui.F_Ship.txtInput.Text("")
+	Gui.F_Ship.txtName.Text("")
+	Gui.F_Ship.txtPart.Text("")
+	Gui.F_Ship.txtPO.Text("")
+	Gui.F_Ship.txtShipVia.Text("")
+	F.Intrinsic.Control.CallSub(Flexgrid_shipping)
+	F.Intrinsic.Control.CallSub(Flexgrid_serial)
+	Gui.F_Ship.txtCarrier.Locked(true)
+	Gui.F_Ship.txtShipVia.Locked(true)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rst.Close
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("verify_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.verify.End
+
+Program.Sub.OL_Validation.Start
+F.Intrinsic.Control.SetErrorHandler("OL_Validation_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.iCount.Declare(Long)
+V.Local.sPart.Declare(String)
+V.Local.bRet.Declare(Boolean,True)
+V.Local.sRet.Declare(String)
+
+'Enable controls
+F.Intrinsic.Control.If(V.Screen.F_Ship!txtOrder.Text,<>,"")
+
+	F.Intrinsic.String.Concat("Select OL.PART, LEFT(OL.RECORD_NO,3) Line, IM.DESCRIPTION, OL.QTY_ORDERED, IM2.TEXT_INFO1 from ORDER_LINES OL LEFT JOIN INVENTORY_MSTR IM ON OL.PART=IM.PART LEFT JOIN INVENTORY_MST2 IM2 ON IM.PART=IM2.PART where OL.Record_Type='L' and record_no <> '8000' and ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' Order by RECORD_NO",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.sQuery)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","uglobal.uValidate","false",10000)
+	F.ODBC.conx!rst.Close
+
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uGrid!Qty_Scanned,"<>::0",V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		F.Intrinsic.Control.For(V.Local.iCount,0,V.Local.sRet.UBound,1)
+		F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uValidate!Part,V.uGlobal.uGrid(v.Local.sRet[v.Local.iCount])!Part,V.Local.sText)
+		F.Intrinsic.Control.If(V.Local.sText,=,"")
+			V.Local.bRet.Set(False)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.Next(V.local.iCount)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.AddRV("bRet",V.Local.bRet)
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("OL_Validation_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_4089_Ship_Barcode_Verification.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.OL_Validation.End
+
+Program.Sub.Update_Grid.Start
+V.Local.sQuery.Declare(String)
+V.Local.iCount.Declare(Long)
+V.Local.sRet.Declare(String)
+
+V.Local.sPos.Declare(String,"1*!*5*!*7")
+F.Intrinsic.String.Split(V.Local.sPos,"*!*",V.Local.sPos)
+V.Local.sLen.Declare(String,"4*!*2*!*2")
+F.Intrinsic.String.Split(V.Local.sLen,"*!*",V.Local.sLen)
+
+F.Intrinsic.Variable.UDTCopy(V.uGlobal.uGrid,V.uGlobal.uCopy,False)
+
+F.Intrinsic.String.Concat("Select OL.PART, LEFT(OL.RECORD_NO,3) Line, IM.DESCRIPTION, OL.QTY_ORDERED, IM2.TEXT_INFO1, OL.DATE_ITEM_PROMISE from ORDER_LINES OL LEFT JOIN INVENTORY_MSTR IM ON OL.PART=IM.PART LEFT JOIN INVENTORY_MST2 IM2 ON IM.PART=IM2.PART where OL.Record_Type='L' and ORDER_NO='",V.Screen.F_Ship!txtOrder.Text,"' Order by RECORD_NO",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.sQuery)
+F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","uglobal.uGrid","True",10000)
+F.ODBC.conx!rst.Close
+
+F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uCopy.UBound,1)
+	F.Intrinsic.Variable.UDTSeek(V.uGlobal.uGrid!Part,V.uGlobal.uCopy!Part,6,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		V.uGlobal.uGrid(v.Local.sRet)!Qty_Scanned.Set(V.uGlobal.uCopy(v.Local.iCount)!Qty_Scanned)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+'Modifying PromiseDate
+F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uGrid.UBound,1)
+	F.Intrinsic.String.PositionalSplit(V.uGlobal.uGrid(v.Local.iCount)!PromiseDate,V.Local.sPos,V.Local.sLen,V.Local.sRet)
+	F.Intrinsic.String.Concat(V.Local.sRet(1),"/",V.Local.sRet(2),"/",V.Local.sRet(0),V.uGlobal.uGrid(v.Local.iCount)!PromiseDate)
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+Gui.F_Ship.gsflexgrid1.LoadFromUDT("uGlobal.uGrid","Line::0*!*Part::1*!*Catalog::2*!*Desc::3*!*OrderQty::4*!*PromiseDate::6",2)
+
+Program.Sub.Update_Grid.End
+
+program.sub.cmdclear_click.start
+V.Local.sRet.Declare(String)
+V.Local.iL.Declare(Long)
+V.Local.sTemp.Declare(String)
+V.Local.iQuant.Declare(Long)
+V.Local.iRow.Declare(Long)
+
+F.Intrinsic.Control.If(V.Screen.F_Ship!txtPart.text,<>,"")
+	
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uGrid!Part,V.Screen.F_Ship!txtPart.Text,V.uGlobal.uGrid!Line,V.Global.sLine,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.local.sRet)
+
+		F.Intrinsic.Control.For(V.Local.iL,0,V.Local.sRet.UBound,1)
+			V.local.sTemp.Set(V.Local.sRet(v.Local.iL))
+			F.Intrinsic.Math.Sub(V.uGlobal.uGrid(v.Local.sTemp)!Qty_Scanned,1,V.Local.iQuant)
+			F.Intrinsic.Math.Add(V.Local.sRet(v.Local.iL),1,V.Local.iRow)
+			Gui.F_Ship.gsflexgrid1.TextMatrix(5,V.Local.iRow,V.Local.iQuant)
+			V.uGlobal.uGrid(v.Local.sTemp)!Qty_Scanned.Set(V.Local.iQuant)
+			V.Global.sLine.Set("")
+		F.Intrinsic.Control.Next(V.Local.iL)
+
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.EndIf
+
+Gui.F_Ship.txtInput.Text("")
+Gui.F_Ship.txtPart.Text("")
+
+
+program.sub.cmdclear_click.end
+
+Program.Sub.headerUpdate.Start
+
+
+V.Local.sSel.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.iCartons.Declare(Long)
+V.Local.fWeight.Declare(Float)
+V.Local.sHold.Declare(String)
+V.Local.iRows.Declare(Long)
+
+F.Intrinsic.Math.Sub(V.Screen.F_Ship!gsflexgrid1.Rows,1,V.Local.iRows)
+F.Intrinsic.Control.For(V.Local.i,1,V.Local.iRows,1)
+	' total weight
+	Gui.F_Ship.gsflexgrid1.GetTextMatrix(7,V.Local.i,V.Local.sHold)
+	F.Intrinsic.Math.Add(V.Local.fWeight,V.Local.sHold.Float,V.Local.fWeight)
+
+	' total carton count
+	Gui.F_Ship.gsflexgrid1.GetTextMatrix(8,V.Local.i,V.Local.sHold)
+	F.Intrinsic.Math.Add(V.Local.iCartons,V.Local.sHold.Long,V.Local.iCartons)
+F.Intrinsic.Control.Next(V.Local.i)
+
+' find shipping suffix
+F.Intrinsic.String.Build("select TOP 1 Order_Suffix from Shipment_Header where Order_No = '{0}' ",V.Screen.F_Ship!txtOrder.Text,V.Local.sSel)
+F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSel,V.Local.sHold)
+
+F.Intrinsic.String.Build("update Shipment_Header set Cartons = {0}, Weight = {1} where Order_No = '{2}' and Order_Suffix = '{3}' and Order_Rec = '  A'",V.Local.iCartons,V.Local.fWeight.Format0.0000,V.Screen.F_Ship!txtOrder.Text,V.Local.sHold,V.Local.sSel)
+F.ODBC.Connection!conx.Execute(V.Local.sSel)
+
+
+Program.Sub.headerUpdate.End
+
+
